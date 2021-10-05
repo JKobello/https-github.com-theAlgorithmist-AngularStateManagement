@@ -1,0 +1,22 @@
+<form [formGroup]="accountForm">
+	<div>
+		<input formControlName="firstName" placeholder="First name">
+	</div>
+	<div>
+		<input formControlName="lastName" placeholder="Last name">
+	</div>
+	<div>
+		<input formControlName="phone" placeholder="Phone">
+	</div>
+	<div>
+		<input formControlName="email" placeholder="Email">
+	</div>
+	<button (click)="addStudent()" *ngIf="!showStudentForm">Add Student</button>
+	<div formArrayName="studentsArray">
+		<div *ngFor="let student of studentsArray.controls; let i = index" [formGroupName]="i">
+			<input formControlName="firstName" placeholder="First Name">
+			<input formControlName="lastName" placeholder="Last Name">
+			<input formControlName="dob" placeholder="Date of Birth">
+		</div>
+	</div>
+</form>
